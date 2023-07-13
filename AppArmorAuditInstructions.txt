@@ -1,0 +1,23 @@
+1. Check for AppArmor installation: Verify if AppArmor is installed on your system by running the following command in the terminal:
+   
+   sudo dpkg -l | grep apparmor
+   
+   If AppArmor is installed, you will see output related to the package.
+
+2. View AppArmor status: To check the current status of AppArmor, use the following command:
+   
+   sudo apparmor_status
+   
+   This will display the active profiles and their associated processes.
+
+3. Enable audit mode: If you suspect AppArmor is causing issues with a specific application, you can enable audit mode to record any violations without enforcing them. To enable audit mode for a specific profile, execute the command:
+   
+   sudo aa-complain /path/to/profile
+   
+   Replace `/path/to/profile` with the path of the profile you want to audit.
+
+4. Review audit logs: After enabling audit mode, AppArmor violations will be logged in the system's audit log file. By default, on Ubuntu-based systems, the audit log file is located at `/var/log/audit/audit.log`. To view the log in real-time, you can use the following command:
+   
+   sudo tail -f /var/log/audit/audit.log
+   
+   This will display the recent entries in the log file.
