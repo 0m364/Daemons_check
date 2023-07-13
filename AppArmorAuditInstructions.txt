@@ -21,3 +21,17 @@
    sudo tail -f /var/log/audit/audit.log
    
    This will display the recent entries in the log file.
+
+##########################################################################################################################
+
+sometimes you may need extra GPU memory when running bots than is allowed by apparmor i have not experienced this with Ubuntu but i have with Debian and Kali 
+
+1. Locate the AppArmor profile related to your terminal or application. The profiles are usually stored in the `/etc/apparmor.d/` directory. Look for a profile that corresponds to your terminal or application.
+
+2. Edit the profile using a text editor, such as `nano` or `vim`. Locate the section related to GPU memory usage or specific resource limitations.
+
+3. Modify the profile to allow a higher GPU memory limit or remove the restriction altogether. Make sure you understand the implications of granting more resources to the application in terms of security and performance.
+
+4. Save the changes to the AppArmor profile and exit the text editor.
+
+5. Reload the AppArmor profiles using the command `sudo apparmor_parser -r /etc/apparmor.d/`.
